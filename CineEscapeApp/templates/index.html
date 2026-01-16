@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="section">
+    <h1 class="page-title">Users</h1>
+
+    <div class="user-cards">
+        {% for user in users %}
+        <div class="user-card">
+            <div class="user-card-body">
+                <p class="user-name">{{ user.name }}</p>
+
+                <a href="{{ url_for('get_movies', user_id=user.id) }}"
+                   class="btn btn-primary">
+                    View Movies
+                </a>
+
+                <form action="{{ url_for('delete_user', user_id=user.id) }}"
+                      method="post"
+                      class="inline-form">
+                    <button type="submit"
+                            class="btn btn-danger"
+                            onclick="return confirm('Delete this user and all their movies?');">
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Add New User</h2>
+    <form action="{{ url_for('create_user') }}" method="post" class="add-user-form">
+        <input type="text"
+               name="name"
+               placeholder="User name"
+               required
+               class="input-text">
+        <button type="submit" class="btn btn-primary">
+            Add User
+        </button>
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="section">
+    <a href="{{ url_for('index') }}" class="btn btn-secondary back-link">← Back to Users</a>
+    <h1 class="page-title">Movies for {{ user.name }}</h1>
+
+    <div class="movie-list">
+        {% for movie in movies %}
+        <div class="movie-card">
+            <div class="movie-poster">
+                {% if movie.poster_url %}
+                <img src="{{ movie.poster_url }}" alt="Poster for {{ movie.title }}">
+                {% else %}
+                <div class="poster-placeholder">No Poster</div>
+                {% endif %}
+            </div>
+            <div class="movie-info">
+                <p class="movie-title">{{ movie.title }}</p>
+                <p class="movie-meta">
+                    {% if movie.year %}Year: {{ movie.year }}{% endif %}
+                    {% if movie.director %}<br>Director: {{ movie.director }}{% endif %}
+                </p>
+
+                <div class="movie-actions">
+                    <form action="{{ url_for('update_movie', user_id=user.id, movie_id=movie.id) }}"
+                          method="post"
+                          class="inline-form movie-update-form">
+                        <input type="text"
+                               name="new_title"
+                               placeholder="New title"
+                               class="input-text input-small">
+                        <button type="submit" class="btn btn-warning btn-small">
+                            Update
+                        </button>
+                    </form>
+
+                    <form action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}"
+                          method="post"
+                          class="inline-form">
+                        <button type="submit"
+                                class="btn btn-danger btn-small"
+                                onclick="return confirm('Delete this movie?');">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Add New Movie</h2>
+    <form action="{{ url_for('add_movie', user_id=user.id) }}"
+          method="post"
+          class="add-movie-form">
+        <input type="text"
+               name="title"
+               placeholder="Movie title"
+               required
+               class="input-text">
+        <input type="text"
+               name="year"
+               placeholder="Year (optional)"
+               class="input-text">
+        <button type="submit" class="btn btn-primary">
+            Add Movie
+        </button>
+    </form>
+</section>
+
+{% endblock %}

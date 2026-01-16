@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cineescapeapp"
+version = "0.1.0"
+description = "A Flask-based movie collection web application."
+authors = [
+    { name = "etherblitzdev" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "Flask>=3.1.0",
+    "Flask-SQLAlchemy>=3.1.0",
+    "SQLAlchemy>=2.0.0",
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.0",
+    "black>=25.0.0",
+    "ruff>=0.14.0",
+    "pylint>=4.0.0",
+    "flake8>=7.0.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["CineEscapeApp*"]
+
+[tool.setuptools.package-data]
+"CineEscapeApp" = ["templates/**/*", "static/**/*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["CineEscapeApp/tests"]
+
+[tool.pylint.MASTER]
+ignore = ["venv", ".venv"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E501"]

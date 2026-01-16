@@ -1,0 +1,9 @@
+Flask
+Flask-SQLAlchemy
+requests
+python-dotenv
+pytest
+black
+ruff
+pylint
+flake8

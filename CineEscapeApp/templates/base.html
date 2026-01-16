@@ -1,0 +1,50 @@
+{# noinspection HtmlUnknownAttribute #}
+{% from "macros.html" import error_banner %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 CineEscapeApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="app-header">
+    <div class="app-header-inner">
+        <a class="app-brand" href="{{ url_for('index') }}">
+            <span class="app-logo">🎬</span>
+            <span class="app-title">CineEscapeApp</span>
+        </a>
+    </div>
+</header>
+
+{% if error_message %}
+    {{ error_banner(error_message) }}
+{% endif %}
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="app-footer">
+    <p>© 2026 🎬 CineEscapeApp. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+        const $notification = $delete.parentNode;
+        $delete.addEventListener('click', () => {
+            if ($notification && $notification.parentNode) {
+                $notification.parentNode.removeChild($notification);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+
