@@ -115,6 +115,11 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
+## Environment Setup
+Use the `.venv` at project root (`/workspace/.venv`) for all development.  
+Do not create nested virtual environments inside `CineEscapeApp/`.
+
+
 ### 3. Install Dependencies
 ```bash
 pip install -r CineEscapeApp/requirements.txt
