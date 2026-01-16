@@ -19,45 +19,46 @@ This project demonstrates best practices in Python packaging, Flask app structur
 ## 📁 Project Structure
 ```
 codio-oop-movie-flask-sqlalchemy-cineescapeapp-project
+├── CHANGELOG.md
 ├── CineEscapeApp
-│   ├── __init__.py
-│   ├── app.py
-│   ├── config.py
-│   ├── data_manager.py
-│   ├── instance
-│   │   └── movies.db
-│   ├── logs
-│   │   └── cineescape.log
-│   ├── models.py
-│   ├── pyproject.toml
-│   ├── requirements.txt
-│   ├── reset_db.py
-│   ├── static
-│   │   └── style.css
-│   ├── templates
-│   │   ├── 400.html
-│   │   ├── 404.html
-│   │   ├── 500.html
-│   │   ├── base.html
-│   │   ├── index.html
-│   │   ├── macros.html
-│   │   └── movies.html
-│   └── tests
-│       ├── conftest.py
-│       ├── test_movies.py
-│       └── test_users.py
+│   ├── __init__.py
+│   ├── app.py
+│   ├── config.py
+│   ├── data_manager.py
+│   ├── instance
+│   │   └── movies.db
+│   ├── logs
+│   │   └── cineescape.log
+│   ├── models.py
+│   ├── pyproject.toml
+│   ├── requirements.txt
+│   ├── reset_db.py
+│   ├── static
+│   │   └── style.css
+│   ├── templates
+│   │   ├── 400.html
+│   │   ├── 404.html
+│   │   ├── 500.html
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── macros.html
+│   │   └── movies.html
+│   └── tests
+│       ├── conftest.py
+│       ├── test_movies.py
+│       └── test_users.py
 ├── codio.postman_environment.json
 ├── create_cineescape.sh
 ├── logs
-│   ├── cineescape.log
-│   ├── cineescape.log.1
-│   ├── cineescape.log.2
-│   └── cineescape.log.3
+│   ├── cineescape.log
+│   ├── cineescape.log.1
+│   ├── cineescape.log.2
+│   └── cineescape.log.3
 ├── macOS.postman_environment.json
 ├── pytest.ini
 └── README.md
 
-8 directories, 30 files
+8 directories, 31 files
 ```
 
 ---
